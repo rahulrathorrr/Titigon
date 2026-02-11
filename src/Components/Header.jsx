@@ -55,51 +55,62 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#0B0F19] border-b border-gray-800/50 shadow-lg">
-      <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#0B0F19] border-b border-gray-800 shadow-xl backdrop-blur-md">
+      <div className="w-full px-4 md:px-10 py-4 flex justify-between items-center">
 
-        {/* LOGO + COMPANY NAME (Fixed Alignment) */}
-        <Link to="/" className="z-50 flex items-center gap-3">
-          <motion.img
-            src={logo}
-            alt="logo"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="h-10 w-auto object-contain shrink-0"
-          />
+        {/* FAR LEFT SECTION: LOGO + COMPANY NAME */}
+        <div className="flex-shrink-0">
+          <Link to="/" className="z-50 flex items-center gap-4 group">
+            <motion.img
+              src={logo}
+              alt="logo"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="h-10 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
+            />
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-xl md:text-2xl font-black text-white tracking-[0.15em] uppercase flex items-center"
+            >
+              TITIGON<span className="text-blue-500 ml-1">.</span>
+            </motion.div>
+          </Link>
+        </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-lg md:text-xl font-bold text-white tracking-widest uppercase flex items-center"
+        {/* RIGHT SECTION: NAV + CONTACT BUTTON (Everything else stays right) */}
+        <div className="hidden xl:flex items-center gap-8">
+          <nav className="flex items-center gap-6">
+            {navLinks.map((link, index) => (
+              <Link key={index} to={link.path} className="relative group whitespace-nowrap">
+                <span
+                  className={`text-[10px] font-black tracking-[0.12em] transition-colors duration-300 ${
+                    location.pathname === link.path
+                      ? "text-blue-400"
+                      : "text-white group-hover:text-blue-300"
+                  }`}
+                >
+                  {link.title}
+                </span>
+                <span className={`absolute -bottom-1 left-0 h-[2px] bg-blue-500 transition-all duration-300 ${
+                    location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
+                }`}></span>
+              </Link>
+            ))}
+          </nav>
+
+          <Link 
+            to="/contact" 
+            className="px-7 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-[11px] font-black tracking-[0.2em] rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] uppercase border border-blue-400"
           >
-            TITIGON<span className="text-gray-500 ml-1">.</span>
-          </motion.div>
-        </Link>
-
-        {/* DESKTOP MENU */}
-        <nav className="hidden xl:flex items-center gap-8">
-          {navLinks.map((link, index) => (
-            <Link key={index} to={link.path} className="relative group">
-              <span
-                className={`text-xs font-semibold tracking-widest transition-colors duration-300 ${
-                  location.pathname === link.path
-                    ? "text-white"
-                    : "text-gray-400 group-hover:text-white"
-                }`}
-              >
-                {link.title}
-              </span>
-
-              <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-        </nav>
+            Contact
+          </Link>
+        </div>
 
         {/* MOBILE MENU BUTTON */}
         <div className="xl:hidden z-50">
-          <button onClick={toggleMenu} className="text-white flex items-center">
-            {isOpen ? <X size={32} /> : <Menu size={32} />}
+          <button onClick={toggleMenu} className="text-white flex items-center p-2 bg-gray-800/50 rounded-lg border border-gray-700">
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
@@ -119,7 +130,7 @@ const Header = () => {
               initial="initial"
               animate="open"
               exit="initial"
-              className="flex flex-col gap-6 text-center px-4"
+              className="flex flex-col gap-8 text-center px-4"
             >
               {navLinks.map((link, index) => (
                 <div key={index} className="overflow-hidden">
@@ -127,21 +138,25 @@ const Header = () => {
                     <Link
                       to={link.path}
                       onClick={toggleMenu}
-                      className="text-2xl md:text-4xl font-bold text-gray-400 hover:text-white transition-colors tracking-tighter uppercase flex items-center justify-center gap-2 group"
+                      className="text-2xl md:text-4xl font-black text-white hover:text-blue-500 transition-colors tracking-tighter uppercase flex items-center justify-center gap-2 group"
                     >
                       {link.title}
-
                       <motion.span
-                        className="opacity-0 group-hover:opacity-100 text-[#4ade80]"
+                        className="opacity-0 group-hover:opacity-100 text-blue-500"
                         initial={{ x: -10 }}
                         whileHover={{ x: 0 }}
                       >
-                        <ChevronRight size={28} />
+                        <ChevronRight size={32} />
                       </motion.span>
                     </Link>
                   </motion.div>
                 </div>
               ))}
+              <motion.div variants={linkVars} className="mt-4">
+                <Link to="/contact" onClick={toggleMenu} className="px-12 py-4 bg-blue-600 text-white font-black rounded-full tracking-[0.2em] uppercase shadow-2xl">
+                  Contact
+                </Link>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

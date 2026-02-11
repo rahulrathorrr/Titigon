@@ -9,7 +9,7 @@ import {
   ArrowDown,
   MapPin
 } from "lucide-react";
-import Footer from "./Footer"; // Import Footer
+import Footer from "./Footer"; 
 
 // --- Components ---
 
@@ -37,10 +37,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 border border-blue-500/30 rounded-full px-4 py-1 mb-8 bg-blue-900/10 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 border border-blue-400/50 rounded-full px-4 py-1 mb-8 bg-blue-900/20 backdrop-blur-sm"
         >
           <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-          <span className="text-blue-400 text-xs tracking-[0.2em] font-mono uppercase">System Operational</span>
+          <span className="text-blue-300 text-xs tracking-[0.2em] font-mono uppercase font-bold">System Operational</span>
         </motion.div>
 
         <motion.h1 
@@ -56,7 +56,7 @@ const HeroSection = () => {
            initial={{ opacity: 0 }}
            animate={{ opacity: 1 }}
            transition={{ duration: 1, delay: 0.4 }}
-           className="text-xl md:text-3xl text-gray-400 font-light tracking-wide"
+           className="text-xl md:text-3xl text-white font-medium tracking-wide"
         >
           Structured Digital Intelligence Systems
         </motion.h2>
@@ -66,9 +66,9 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{ delay: 1, duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] tracking-widest uppercase">Initiate Protocol</span>
+        <span className="text-[10px] tracking-widest uppercase font-bold">Initiate Protocol</span>
         <ArrowDown size={20} />
       </motion.div>
     </section>
@@ -84,11 +84,11 @@ const NarrativeSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-3xl md:text-5xl font-medium text-gray-300 leading-snug"
+          className="text-3xl md:text-5xl font-medium text-white leading-snug"
         >
-          <span className="text-blue-500 block text-sm font-mono tracking-widest uppercase mb-4">The Current State</span>
+          <span className="text-blue-400 block text-sm font-mono tracking-widest uppercase mb-4 font-bold">The Current State</span>
           Modern organizations generate significant volumes of operational data. 
-          <span className="text-white"> Emails. Meetings. Financial records. Verification documents.</span>
+          <span className="text-blue-500"> Emails. Meetings. Financial records. Verification documents.</span>
         </motion.p>
         
         <motion.p 
@@ -96,7 +96,7 @@ const NarrativeSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="mt-12 text-2xl md:text-4xl text-gray-500 font-light leading-snug border-l-4 border-gray-700 pl-8"
+            className="mt-12 text-2xl md:text-4xl text-gray-200 font-light leading-snug border-l-4 border-blue-600 pl-8"
         >
             However, without defined structure, these inputs remain fragmented and difficult to govern.
         </motion.p>
@@ -135,11 +135,11 @@ const CoreProcessSection = () => {
 
   return (
     <section className="py-20 bg-[#0d121f] relative overflow-hidden">
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"></div>
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-24">
-          <span className="text-blue-400 font-mono text-sm tracking-widest uppercase">System Architecture</span>
+          <span className="text-blue-400 font-mono text-sm tracking-widest uppercase font-bold">System Architecture</span>
           <h2 className="text-4xl font-bold text-white mt-2">Modular System Design</h2>
         </div>
 
@@ -155,16 +155,16 @@ const CoreProcessSection = () => {
             >
               <div className="flex-1 text-left md:text-right">
                 <div className={`flex flex-col ${index % 2 === 0 ? 'md:items-start md:text-left' : 'md:items-end md:text-right'}`}>
-                  <span className="text-6xl font-black text-gray-800 mb-2 select-none">{proc.id}</span>
+                  <span className="text-6xl font-black text-gray-700 mb-2 select-none">{proc.id}</span>
                   <h3 className="text-3xl font-bold text-white mb-4">{proc.title}</h3>
-                  <p className="text-gray-400 text-lg leading-relaxed max-w-md">
+                  <p className="text-gray-200 text-lg leading-relaxed max-w-md">
                     {proc.desc}
                   </p>
                 </div>
               </div>
 
               <div className="relative flex-shrink-0">
-                <div className="w-16 h-16 bg-[#0B0F19] border border-blue-500 rounded-full flex items-center justify-center text-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.2)] z-20 relative">
+                <div className="w-16 h-16 bg-[#0B0F19] border border-blue-500 rounded-full flex items-center justify-center text-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)] z-20 relative">
                   {proc.icon}
                 </div>
               </div>
@@ -187,27 +187,27 @@ const IdentityDataSection = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-10 border border-gray-800 bg-gray-900/30 rounded-xl"
+            className="p-10 border border-gray-700 bg-gray-900/50 rounded-xl"
           >
-             <h3 className="text-sm font-mono text-gray-500 mb-8 uppercase tracking-widest border-b border-gray-800 pb-4">
+             <h3 className="text-sm font-mono text-blue-400 mb-8 uppercase tracking-widest border-b border-gray-800 pb-4 font-bold">
                 Entity Metadata
              </h3>
              <div className="space-y-8">
                 <div className="group">
-                    <p className="text-xs text-gray-500 uppercase mb-1">Company Name</p>
+                    <p className="text-xs text-gray-400 uppercase mb-1 font-bold">Company Name</p>
                     <p className="text-2xl text-white font-semibold">TITIGON PRIVATE LIMITED</p>
                 </div>
                 <div className="group">
-                    <p className="text-xs text-gray-500 uppercase mb-1">Incorporation Date</p>
+                    <p className="text-xs text-gray-400 uppercase mb-1 font-bold">Incorporation Date</p>
                     <div className="flex items-center gap-3">
-                        <Calendar size={20} className="text-blue-500" />
+                        <Calendar size={20} className="text-blue-400" />
                         <p className="text-xl text-white">10 February 2026</p>
                     </div>
                 </div>
                 <div className="group">
-                    <p className="text-xs text-gray-500 uppercase mb-1">Headquarters</p>
+                    <p className="text-xs text-gray-400 uppercase mb-1 font-bold">Headquarters</p>
                     <div className="flex items-center gap-3">
-                        <MapPin size={20} className="text-blue-500" />
+                        <MapPin size={20} className="text-blue-400" />
                         <p className="text-xl text-white">Mumbai, Maharashtra, India</p>
                     </div>
                 </div>
@@ -222,15 +222,15 @@ const IdentityDataSection = () => {
           >
              <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Structured Environments, <br/>
-                <span className="text-gray-600">Not Just Tools.</span>
+                <span className="text-blue-500">Not Just Tools.</span>
              </h3>
-             <p className="text-xl text-gray-400 leading-relaxed mb-8">
+             <p className="text-xl text-gray-100 leading-relaxed mb-8">
                 We develop structured intelligence platforms designed to convert operational complexity 
                 into organized systems.
              </p>
-             <div className="h-64 bg-slate-800 rounded-lg overflow-hidden relative group">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-30 group-hover:scale-105 transition-transform duration-700"></div>
-                <div className="absolute bottom-4 left-4 bg-black/80 px-4 py-2 rounded text-xs text-white font-mono">
+             <div className="h-64 bg-slate-800 rounded-lg overflow-hidden relative group border border-gray-700">
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-50 group-hover:scale-105 transition-transform duration-700"></div>
+                <div className="absolute bottom-4 left-4 bg-blue-600 px-4 py-2 rounded text-xs text-white font-mono font-bold">
                     COORD: MUMBAI_HQ
                 </div>
              </div>
@@ -248,7 +248,7 @@ const PhilosophySection = () => {
                 <img 
                     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
                     alt="Network" 
-                    className="w-full h-full object-cover grayscale opacity-20"
+                    className="w-full h-full object-cover grayscale opacity-30"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-[#0B0F19]"></div>
             </div>
@@ -258,11 +258,11 @@ const PhilosophySection = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="text-4xl md:text-6xl font-bold text-white mb-8"
+                    className="text-4xl md:text-6xl font-black text-white mb-8"
                 >
                     "We prioritize engineering discipline over rapid feature expansion."
                 </motion.h2>
-                <p className="text-blue-400 text-lg tracking-widest uppercase font-mono">
+                <p className="text-blue-400 text-xl tracking-[0.2em] uppercase font-mono font-bold">
                     Architectural Clarity • Security Control • Modular Scalability
                 </p>
             </div>
@@ -281,7 +281,6 @@ const Home = () => {
       <IdentityDataSection />
       <PhilosophySection />
       
-      {/* Footer Included with Dark Theme */}
       <Footer theme="dark" />
     </div>
   );

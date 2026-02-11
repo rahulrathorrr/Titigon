@@ -10,6 +10,7 @@ import RoadmaPage from './Pages/RoadmaPage'
 import CompanyPage from './Pages/CompanyPage'
 import PrivacyPage from './Pages/PrivacyPage'
 import TermsPage from './Pages/TermsPage'
+import ContactPage from './Pages/ContactPage'
 
 
 
@@ -53,6 +54,10 @@ const App = () => {
       {
         path:'/terms-and-conditions',
         element: <TermsPage/>
+      },
+      {
+        path:'/contact',
+        element: <ContactPage/>
       },
       
       
